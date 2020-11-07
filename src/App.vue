@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <div v-for="(user, index) in users" :key="user.id">
       <p>{{index + 1}}</p>
-      <User :user="user" showPassword="true"/>
+      <User :user="user" showPassword="false"/>
     </div>
   </div>
 </template>
