@@ -4,12 +4,13 @@
         <br>
         <input type="text" :value="user.email" />
         <br>
-        <input type="password" :value="user.password" v-if="showPassword == true"/>
+        <input type="text" :value="user.password" v-if="showPassword == true"/>
         <p v-else>Hide Password</p>
         <br>
-        <button @click="hidePassword">Show Password</button>
+        <button @click="hidePassword">{{passwordShowText}} Password</button>
         <br>
-        <strong>{{user.name}}</strong>
+        <br>
+        <strong>{{user.name | capsLockText}}</strong>
     </div>
 </template>
 
@@ -22,11 +23,22 @@ export default {
     },
     props: {
         user: Object,
-        showPassword: Boolean
+        showPassword: Boolean,
+        passwordShowText: String
     },
     methods: {
         hidePassword: function() {
             this.showPassword = !this.showPassword;
+            if (!this.showPassword) {
+                this.passwordShowText = 'Show'
+            } else {
+                this.passwordShowText = 'Hide'
+            }
+        }
+    },
+    filters: {
+        capsLockText: function(value) {
+            return value.toUpperCase();
         }
     }
 }
