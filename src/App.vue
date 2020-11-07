@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Client />
+    <Client :user="user" />
   </div>
 </template>
 
@@ -10,6 +10,15 @@ import Client from './components/Client.vue'
 
 export default {
   name: 'App',
+  data(){
+    return {
+      user: {
+        name: 'Hiago',
+        email: 'joaohiago@gmail.com',
+        password: '123456'
+      }
+    }
+  },
   components: {
     Client
   }
