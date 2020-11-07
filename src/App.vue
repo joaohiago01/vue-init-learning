@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Client :user="user" />
+    <User :user="user" :showPassword="true"/>
   </div>
 </template>
 
 <script>
-import Client from './components/Client.vue'
+import User from './components/User.vue'
 
 export default {
   name: 'App',
@@ -20,7 +20,7 @@ export default {
     }
   },
   components: {
-    Client
+    User
   }
 }
 </script>

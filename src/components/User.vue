@@ -2,9 +2,10 @@
     <div>
         <input v-model="user.name"/>
         <br>
-        <input type="text" :value="user.email">
+        <input type="text" :value="user.email" />
         <br>
-        <input type="password" :value="user.password">
+        <input type="password" :value="user.password" v-if="showPassword == false"/>
+        <p v-else>Hide Password</p>
         <br>
         <strong>{{user.name}}</strong>
     </div>
@@ -18,7 +19,8 @@ export default {
         }
     },
     props: {
-        user: Object
+        user: Object,
+        showPassword: Boolean
     }
 }
 </script>
